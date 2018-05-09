@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.card.mapper.CreditCardMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.card.entity.CreditCard">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="affiliated_bank" jdbcType="VARCHAR" property="affiliatedBank" />
+    <result column="card_number" jdbcType="VARCHAR" property="cardNumber" />
+    <result column="validity_date" jdbcType="VARCHAR" property="validityDate" />
+    <result column="cvn" jdbcType="VARCHAR" property="cvn" />
+    <result column="reserved_phone_number" jdbcType="VARCHAR" property="reservedPhoneNumber" />
+    <result column="bank_card_quota" jdbcType="INTEGER" property="bankCardQuota" />
+    <result column="statement_date" jdbcType="VARCHAR" property="statementDate" />
+    <result column="repayment_date" jdbcType="VARCHAR" property="repaymentDate" />
+  </resultMap>
+  <update id="updateCreditCard" parameterType="java.util.Map">
+    UPDATE t_credit_card
+    <set>
+      <if test="validityDate != null">
+        validity_date = #{validityDate},
+      </if>
+      <if test="cvn != null">
+        cvn = #{cvn},
+      </if>
+      <if test="reservedPhoneNumber != null">
+        reserved_phone_number = #{reservedPhoneNumber},
+      </if>
+      <if test="bankCardQuota != null">
+        bank_card_quota = #{bankCardQuota},
+      </if>
+      <if test="statementDate">
+        statement_date =#{statementDate},
+      </if>
+      <if test="repaymentDate != null">
+        repayment_date = #{repaymentDate}
+      </if>
+    </set>
+    WHERE user_id = #{userId}
+    AND card_number = #{cardNumber}
+  </update>
+</mapper>

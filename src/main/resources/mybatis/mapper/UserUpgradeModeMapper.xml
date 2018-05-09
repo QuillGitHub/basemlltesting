@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.upgrade.mapper.UserUpgradeModeMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.upgrade.entity.UserUpgradeMode">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="upgrade_type" jdbcType="INTEGER" property="upgradeType" />
+  </resultMap>
+  <update id="updateUserUpgradeMode" parameterType="java.util.Map">
+    UPDATE t_user_upgrade_mode
+    <set>
+      <if test="upgradeType != null">
+        upgrade_type = #{upgradeType}
+      </if>
+    </set>
+    WHERE user_id = #{userId}
+  </update>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.auditing.mapper.ExaminePhotoMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.auditing.entity.ExaminePhoto">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="card_front" jdbcType="VARCHAR" property="cardFront" />
+    <result column="card_back" jdbcType="VARCHAR" property="cardBack" />
+    <result column="credit_card_front" jdbcType="VARCHAR" property="creditCardFront" />
+    <result column="handheld_identity_card" jdbcType="VARCHAR" property="handheldIdentityCard" />
+    <result column="deposit_card_front" jdbcType="VARCHAR" property="depositCardFront" />
+    <result column="face_recognition" jdbcType="VARCHAR" property="faceRecognition" />
+  </resultMap>
+
+  <update id="updateExaminePhoto" parameterType="java.util.Map">
+    update t_examine_photo
+    <set>
+      <if test="status != null">
+        status = #{status},
+      </if>
+      <if test="cardFront != null">
+        card_front = #{cardFront},
+      </if>
+      <if test="cardBack != null">
+        card_back = #{cardBack},
+      </if>
+      <if test="creditCardFront != null">
+        credit_card_front = #{creditCardFront},
+      </if>
+      <if test="handheldIdentityCard != null">
+        handheld_identity_card = #{handheldIdentityCard},
+      </if>
+      <if test="depositCardFront != null">
+        deposit_card_front = #{depositCardFront},
+      </if>
+      <if test="faceRecognition != null">
+        face_recognition = #{faceRecognition}
+      </if>
+
+    </set>
+    WHERE user_id = #{userId}
+  </update>
+
+  <update id="updateFaceRecognition" parameterType="java.util.Map">
+    UPDATE t_examine_photo
+    <set>
+      <if test="faceRecognition != null">
+        face_recognition = #{faceRecognition}
+      </if>
+    </set>
+    WHERE user_id = #{userId}
+  </update>
+
+</mapper>

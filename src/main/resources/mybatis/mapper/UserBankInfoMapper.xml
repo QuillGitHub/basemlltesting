@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.card.mapper.UserBankInfoMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.card.entity.UserBankInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="card_type" jdbcType="INTEGER" property="cardType" />
+    <result column="card_id" jdbcType="VARCHAR" property="cardId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+  <select id = "findUserBankInfoByCardIdAndCardType" parameterType="java.util.Map" resultType="com.mll.data.testing.card.entity.UserBankInfo">
+    SELECT *
+    FROM t_user_bank_info
+    <where>
+      <if test="cardId != null">
+        AND card_id = #{cardId}
+      </if>
+      <if test="cardType != null">
+        AND card_type = #{cardType}
+      </if>
+    </where>
+  </select>
+
+  <select id = "findUserBankInfoByUserIdAndCardTypeAndStatusList" parameterType="java.util.Map" resultType="com.mll.data.testing.card.entity.UserBankInfo">
+    SELECT *
+    FROM t_user_bank_info
+    <where>
+      <if test="userId != null">
+        AND user_id = #{userId}
+      </if>
+      <if test="cardType != null">
+        AND card_type = #{cardType}
+      </if>
+      <if test="status != null">
+        AND status = #{status}
+      </if>
+    </where>
+  </select>
+</mapper>

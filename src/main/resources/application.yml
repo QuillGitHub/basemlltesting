@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: mybitis
+  datasource:
+    url: jdbc:mysql://@mysql.host@:3306/mlldatatesting?useUnicode=true&characterEncoding=utf-8
+    username: @mysql.username@
+    password: @mysql.password@
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 9527
+
+mybatis:
+  type-aliases-package: com.mll.data.testing.*.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+mapper:
+  mappers: com.mll.data.testing.util.BaseMapper
+  not-empty: false
+  identity: SELECT REPLACE(UUID(),"-","")
+  ORDER: BEFORE

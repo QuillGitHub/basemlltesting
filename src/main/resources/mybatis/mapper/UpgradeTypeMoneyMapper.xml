@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.upgrade.mapper.NeedMoneyMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.upgrade.entity.NeedMoney">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="abbreviation" jdbcType="VARCHAR" property="abbreviation" />
+    <result column="upgrade" jdbcType="INTEGER" property="upgrade" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+  </resultMap>
+</mapper>

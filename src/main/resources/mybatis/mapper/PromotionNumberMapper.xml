@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.user.mapper.PromotionNumberMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.user.entity.PromotionNumber">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="certification_number" jdbcType="INTEGER" property="certificationNumber" />
+    <result column="direct_gold_number" jdbcType="INTEGER" property="directGoldNumber" />
+    <result column="direct_silver_number" jdbcType="INTEGER" property="directSilverNumber" />
+    <result column="direct_bronze_number" jdbcType="INTEGER" property="directBronzeNumber" />
+    <result column="indirect_gold_number" jdbcType="INTEGER" property="indirectGoldNumber" />
+    <result column="indirect_silver_number" jdbcType="INTEGER" property="indirectSilverNumber" />
+    <result column="indirect_bronze_number" jdbcType="INTEGER" property="indirectBronzeNumber" />
+  </resultMap>
+
+  <update id="updatePromotionNumber" parameterType="java.util.Map">
+    UPDATE t_promotion_number
+    <set>
+      <if test="certificationNumber != null">
+        certification_number = #{certificationNumber},
+      </if>
+      <if test="directGoldNumber != null">
+        direct_gold_number = #{directGoldNumber},
+      </if>
+      <if test="directSilverNumber != null">
+        direct_silver_number = #{directSilverNumber},
+      </if>
+      <if test="directBronzeNumber != null">
+        direct_bronze_number = #{directBronzeNumber},
+      </if>
+      <if test="indirectGoldNumber != null">
+        indirect_gold_number = #{indirectGoldNumber},
+      </if>
+      <if test="indirectSilverNumber != null">
+        indirect_silver_number = #{indirectSilverNumber},
+      </if>
+      <if test="indirectBronzeNumber != null">
+        indirect_bronze_number = #{indirectBronzeNumber}
+      </if>
+    </set>
+    WHERE user_id = #{userId}
+  </update>
+</mapper>

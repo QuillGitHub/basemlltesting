@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.user.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.user.entity.UserInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="full_name" jdbcType="VARCHAR" property="fullName" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="identity_id" jdbcType="VARCHAR" property="identityId" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="direct_superior" jdbcType="VARCHAR" property="directSuperior" />
+    <result column="indirect_superior" jdbcType="VARCHAR" property="indirectSuperior" />
+    <result column="login_count" jdbcType="VARCHAR" property="loginCount" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="integral" jdbcType="DECIMAL" property="integral" />
+    <result column="share_benefit" jdbcType="DECIMAL" property="shareBenefit" />
+    <result column="last_time" jdbcType="VARCHAR" property="lastTime" />
+  </resultMap>
+
+  <select id="findUserInfoVO" parameterType="java.lang.String" resultType="com.mll.data.testing.user.vo.UserInfoVO">
+        SELECT u.medal,i.direct_superior
+        FROM t_user u
+        INNER JOIN t_user_info i
+        ON u.id = i.user_id
+        WHERE u.id = #{id};
+    </select>
+</mapper>

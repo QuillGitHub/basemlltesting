@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mll.data.testing.profit.mapper.ShareProfitMapper">
+  <resultMap id="BaseResultMap" type="com.mll.data.testing.profit.entity.ShareProfit">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="share_profit_type" jdbcType="INTEGER" property="shareProfitType" />
+    <result column="from_id" jdbcType="VARCHAR" property="fromId" />
+    <result column="trading_id" jdbcType="VARCHAR" property="tradingId" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="share_profit_time" jdbcType="TIMESTAMP" property="shareProfitTime" />
+  </resultMap>
+</mapper>
