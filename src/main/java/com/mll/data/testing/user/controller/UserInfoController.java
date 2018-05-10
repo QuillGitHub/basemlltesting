@@ -80,8 +80,9 @@ public class UserInfoController {
 
         // 获取 用户信息
         User user = userService.findUserByid(userId);
-        UserInfo userInfo = userInfoService.findUserInfoByUserId(userId);
-
+        if(user != null) {
+            UserInfo userInfo = userInfoService.findUserInfoByUserId(userId);
+        }
         if (user.getAuthentication() == 2 && userService.findUserByPhone(user.getRefereePhone()) != null) { // 用户已认证，有邀请人
             UserInfoVO userInfoVO = new UserInfoVO();// 账号 手机号 牌型 直接上级名字  直接上级手机号 头像
             userInfoVO.setLoginName(user.getLoginName());
