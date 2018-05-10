@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -41,7 +43,20 @@ public class BannerServiceImpl implements BannerService{
 
     @Override
     public List<BannerVO> findAllList(){
-         List<BannerVO> bannerVOList = bannerMapper.findAllList();
+        List<BannerVO> bannerVOList = bannerMapper.findAllList();
+        Collections.sort(bannerVOList, new Comparator<BannerVO>() {
+
+            @Override
+            public int compare(BannerVO o1, BannerVO o2) {
+                if(o1.getPlayOrder() > o2.getPlayOrder()){
+                    return 1;
+                }
+                if(o1.getPlayOrder() == o2.getPlayOrder()){
+                    return 0;
+                }
+                return -1;
+            }
+        });
          return  bannerVOList;
     }
 }
