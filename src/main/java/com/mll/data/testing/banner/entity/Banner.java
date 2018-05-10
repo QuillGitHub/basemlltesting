@@ -17,6 +17,9 @@ public class Banner {
     @Column(name = "img_name")
     private String imgName;
 
+    @Column(name = "img_title")
+    private String imgTitle;
+
     @Column(name = "img_url")
     private String imgUrl;
 
@@ -25,6 +28,9 @@ public class Banner {
 
     @Column(name = "img_type")
     private Integer imgType;
+
+    @Column(name = "play_order")
+    private Integer playOrder;
 
     public String getId() {
         return id;
@@ -40,6 +46,14 @@ public class Banner {
 
     public void setImgName(String imgName) {
         this.imgName = imgName;
+    }
+
+    public String getImgTitle() {
+        return imgTitle;
+    }
+
+    public void setImgTitle(String imgTitle) {
+        this.imgTitle = imgTitle;
     }
 
     public String getImgUrl() {
@@ -64,5 +78,13 @@ public class Banner {
 
     public void setImgType(Integer imgType) {
         this.imgType = imgType;
+    }
+
+    public Integer getPlayOrder() {
+        return playOrder;
+    }
+
+    public void setPlayOrder(Integer playOrder) {
+        this.playOrder = playOrder;
     }
 }
