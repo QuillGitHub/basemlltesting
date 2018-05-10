@@ -7,8 +7,10 @@
     -->
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="img_name" jdbcType="VARCHAR" property="imgName" />
+    <result column="img_title" jdbcType="VARCHAR" property="imgTitle" />
     <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
     <result column="jump_page" jdbcType="VARCHAR" property="jumpPage" />
     <result column="img_type" jdbcType="INTEGER" property="imgType" />
+    <result column="play_order" jdbcType="INTEGER" property="playOrder" />
   </resultMap>
 </mapper>
